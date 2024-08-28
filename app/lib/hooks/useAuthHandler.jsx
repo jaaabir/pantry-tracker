@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 const useAuthRedirect = (redirectTo) => {
     const [user, loading, error] = useAuthState(auth);
-    const userLocal = sessionStorage.getItem(process.env.NEXT_PUBLIC_SESSION_AUTH_EMAIL)
+    const userLocal = 'pantry_user_email'
     const router = useRouter();
     const [isRedirecting, setIsRedirecting] = useState(true);
     console.log('Checking if the user has logged in already')

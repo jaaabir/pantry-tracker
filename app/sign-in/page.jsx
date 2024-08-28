@@ -24,7 +24,9 @@ export default function SignIn() {
     try {
       const response = await signInWithGoogle();
       if (response.success) {
-        sessionStorage.setItem(process.env.NEXT_PUBLIC_SESSION_AUTH_EMAIL, response.response.user.email);
+        if (typeof window !== "undefined") {
+            sessionStorage.setItem(process.env.NEXT_PUBLIC_SESSION_AUTH_EMAIL, response.response.user.email);
+        }
         addUser(response.response.user.uid);
         router.push('/dashboard');
       }
